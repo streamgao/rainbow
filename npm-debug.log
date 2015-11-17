@@ -1,0 +1,70 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'foever' ]
+2 info using npm@1.4.23
+3 info using node@v0.10.31
+4 warn package.json class3@1.0.0 No repository field.
+5 warn package.json class3@1.0.0 No README data
+6 verbose readDependencies using package.json deps
+7 verbose cache add [ 'foever', null ]
+8 verbose cache add name=undefined spec="foever" args=["foever",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: 'foever',
+9 verbose parsed url   path: 'foever',
+9 verbose parsed url   href: 'foever' }
+10 silly lockFile a1550f17-foever foever
+11 verbose lock foever /Users/stream/.npm/a1550f17-foever.lock
+12 silly lockFile a1550f17-foever foever
+13 silly lockFile a1550f17-foever foever
+14 verbose addNamed [ 'foever', '' ]
+15 verbose addNamed [ null, '*' ]
+16 silly lockFile 49ff7ea5-foever foever@
+17 verbose lock foever@ /Users/stream/.npm/49ff7ea5-foever.lock
+18 silly addNameRange { name: 'foever', range: '*', hasData: false }
+19 verbose request where is /foever
+20 verbose request registry https://registry.npmjs.org/
+21 verbose request id 370e3882c702da00
+22 verbose url raw /foever
+23 verbose url resolving [ 'https://registry.npmjs.org/', './foever' ]
+24 verbose url resolved https://registry.npmjs.org/foever
+25 verbose request where is https://registry.npmjs.org/foever
+26 info trying registry request attempt 1 at 01:09:41
+27 http GET https://registry.npmjs.org/foever
+28 http 404 https://registry.npmjs.org/foever
+29 silly registry.get cb [ 404,
+29 silly registry.get   { 'content-type': 'application/json',
+29 silly registry.get     'cache-control': 'max-age=0',
+29 silly registry.get     'content-length': '2',
+29 silly registry.get     'accept-ranges': 'bytes',
+29 silly registry.get     date: 'Sun, 04 Oct 2015 05:04:20 GMT',
+29 silly registry.get     via: '1.1 varnish',
+29 silly registry.get     age: '0',
+29 silly registry.get     connection: 'keep-alive',
+29 silly registry.get     'x-served-by': 'cache-atl6229-ATL',
+29 silly registry.get     'x-cache': 'MISS',
+29 silly registry.get     'x-cache-hits': '0',
+29 silly registry.get     'x-timer': 'S1443935060.551923,VS0,VE363' } ]
+30 silly lockFile 49ff7ea5-foever foever@
+31 silly lockFile 49ff7ea5-foever foever@
+32 error 404 Not Found
+32 error 404
+32 error 404 'foever' is not in the npm registry.
+32 error 404 You should bug the author to publish it
+32 error 404 It was specified as a dependency of 'class3'
+32 error 404
+32 error 404 Note that you can also install from a
+32 error 404 tarball, folder, or http url, or git url.
+33 error System Darwin 14.4.0
+34 error command "node" "/usr/local/bin/npm" "install" "foever"
+35 error cwd /Users/stream/百度云同步盘/Course+homework/NETWORK/Live Web/class3/wordgame1
+36 error node -v v0.10.31
+37 error npm -v 1.4.23
+38 error code E404
+39 verbose exit [ 1, true ]

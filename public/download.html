@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<script src="js/peer.min.js"></script>
+		
+		<script type="text/javascript">
+			var mypeerid = null;
+			var peer = null;
+			var connection = null;
+			
+			var init = function() {
+				//peer = new Peer({key: 'uohu08l7r6swcdi'});
+				peer = new Peer({host: '104.131.82.13', port: 9000, path: '/'});
+				
+				peer.on('open', function(id) {
+				  console.log('My peer ID is: ' + id);
+				  mypeerid = id;
+				});
+				
+				peer.on('connection', function(conn) {
+					connection = conn;
+					connection.on('open', function() {
+						document.getElementById('chatlog').innerHTML += "Connection Established";
+					});
+					connection.on('data', function(data) {
+						//document.getElementById('chatlog').innerHTML += data;
+						document.getElementById('other').style.top = data.y;
+						document.getElementById('other').style.left = data.x;
+					});
+				});
+
+				document.body.addEventListener('mousemove', function(evt) {
+					connection.send({x: evt.clientX, y: evt.clientY});
+					//console.log("sending: " + {x: evt.clientX, y: evt.clientY})
+				});				
+			};	
+			
+			var sendmessage = function() {
+				connection.send(document.getElementById('chat').value);
+				document.getElementById('chat').value = "";
+			};
+
+			var placecall = function() {
+				connection = peer.connect(document.getElementById('other_peer_id').value, {reliable: false});
+				connection.on('open', function(data) {
+					document.getElementById('chatlog').innerHTML += "Connection Established";
+				});
+
+				connection.on('data', function(data) {
+					//document.getElementById('chatlog').innerHTML += data;
+					document.getElementById('other').style.top = data.y;
+					document.getElementById('other').style.left = data.x;
+
+				});
+			};
+
+			window.addEventListener('load', init);	
+
+
+		</script>
+	</head>
+	
+	<body>
+		<div id="other" style="position:absolute; top: 0px; left: 0px; background: red; height: 10px; width: 10px;"></div>
+		<input type="text" id="other_peer_id" value="PeerID to Call">
+		<input type="button" value="Call" onclick="placecall()"><br />
+		<input type="text" id="chat">
+		<input type="button" value="Send" onclick="sendmessage()"><br />
+		<div id="chatlog"></div>
+	</body>
+</html>
